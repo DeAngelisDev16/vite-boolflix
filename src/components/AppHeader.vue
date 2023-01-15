@@ -12,9 +12,15 @@ export default {
 }
 </script>
 <template >
-    <h1>Questo è l'header</h1>
+    <div class="input_wrapper">
+        <input type="text">
+        <button>Cerca</button>
+        <hr>
+    </div>
 
 </template>
 <style lang="scss" scoped>
-
+.input_wrapper {
+    padding: 2rem;
+}
 </style>
