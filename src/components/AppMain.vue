@@ -1,5 +1,5 @@
 <script>
-import { store } from '../store'
+import { store } from '../store';
 export default {
     name: 'AppMain',
     //components
@@ -12,6 +12,9 @@ export default {
 }
 </script>
 <template >
+    <div class="movie_preview_wrapper">
+
+    </div>
 
 
 </template>

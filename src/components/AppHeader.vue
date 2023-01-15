@@ -13,9 +13,9 @@ export default {
 </script>
 <template >
     <div class="input_wrapper">
-        <input type="text">
-        <button>Cerca</button>
-        <!-- Nb: fare emit sul padre (App.vue), dirttamente da qui -->
+        <input type="text" v-model="store.searchedTitle">
+        <button @click="$emit('searchMovie', store.searchedTitle)">Cerca</button>
+
         <hr>
     </div>
 

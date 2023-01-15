@@ -24,13 +24,13 @@ export default {
             axios.get(this.apiUrl, {
                 params: {
                     //ID: 12345
-                    //query: store.searchedValue,
+                    query: store.searchedTitle,
                 }
             })
                 .then(function (response) {
-                    console.log(response.data);
-                    store.movieList = response.data;
-                    console.log(store.movieList)
+                    console.log(response.data.results);
+                    store.movieList = response.data.results;
+                    //console.log(store.movieList)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -42,7 +42,7 @@ export default {
 
     },
     created() {
-        this.getMovies()
+        this.getMovies(store.searchedTitle);
 
 
     }
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <template>
-    <AppHeader />
+    <AppHeader @searchMovie="getMovies" />
     <AppMain />
 
 
