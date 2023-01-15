@@ -15,6 +15,7 @@ export default {
     <div class="input_wrapper">
         <input type="text">
         <button>Cerca</button>
+        <!-- Nb: fare emit sul padre (App.vue), dirttamente da qui -->
         <hr>
     </div>
 
