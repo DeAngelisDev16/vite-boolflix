@@ -5,7 +5,7 @@ import AppMain from './components/AppMain.vue';
 import { store } from '../src/store'
 
 export default {
-    name: 'App.vue',
+    name: 'App',
     components: {
         AppHeader,
         AppMain
@@ -21,11 +21,13 @@ export default {
         getMovies() {
             axios.get(this.apiUrl, {
                 params: {
-                    ID: 12345
+                    //ID: 12345
                 }
             })
                 .then(function (response) {
-                    console.log(response);
+                    console.log(response.data);
+                    store.movieList = response.data;
+                    console.log(store.movieList)
                 })
                 .catch(function (error) {
                     console.log(error);
