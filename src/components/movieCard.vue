@@ -16,21 +16,18 @@ export default {
         return {
             store,
             imageName: '',
+            languages: ['it', 'en', 'es', 'fr'],
 
 
         }
     },
     methods: {
-        removeLanguage() {
-            const lang = document.getElementsByTagName('h6');
-            lang.classlist.add('unshown');
 
 
-        },
         getImagePath(imgPath) {
-            if (this.store.movieList.original_language === "en") {
-                this.imageName = 'uk.png';
-                this.removeLanguage();
+            if (this.languages.includes(this.store.movieList.original_language)) {
+                this.imageName = this.store.movieList.original_language;
+
 
             } else;
             return new URL(imgPath, import.meta.url).href;
@@ -51,7 +48,7 @@ export default {
         <h2>{{ movieTitle }}</h2>
         <h4>{{ originalTitle }}</h4>
         <h6>{{ movieLanguage }}</h6>
-        <img :src="getImagePath(`../assets/flags/${imageName}`)">
+        <img :src="getImagePath(`../public/flags/${imageName}.png`)">
         <div class="movie_mark">{{ movieMark }}</div>
 
 
