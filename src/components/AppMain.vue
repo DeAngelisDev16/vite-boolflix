@@ -1,8 +1,12 @@
 <script>
 import { store } from '../store';
+import movieCard from './movieCard.vue';
 export default {
     name: 'AppMain',
-    //components
+    components: {
+        movieCard
+
+    },
     data() {
         return {
             store,
@@ -13,9 +17,11 @@ export default {
 </script>
 <template >
     <div class="movie_preview_wrapper">
-        <ul>
+        <movieCard v-for="movie in store.movieList" :movieTitle="movie.title" :originalTitle="movie.original_title"
+            :movieLanguage="movie.original_language" :movieMark="movie.vote_average" />
+        <!-- <ul>
             <li v-for="movie in store.movieList">{{ movie.title }}</li>
-        </ul>
+        </ul> -->
 
     </div>
 

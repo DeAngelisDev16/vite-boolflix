@@ -21,6 +21,7 @@ export default {
     },
     methods: {
         getMovies() {
+            const self = this
             axios.get(this.apiUrl, {
                 params: {
                     //ID: 12345
@@ -29,8 +30,8 @@ export default {
             })
                 .then(function (response) {
                     console.log(response.data.results);
-                    store.movieList = response.data.results;
-                    console.log(store.movieList)
+                    self.store.movieList = response.data.results;
+                    //console.log(store.movieList)
                 })
                 .catch(function (error) {
                     console.log(error);
