@@ -30,5 +30,10 @@ export default {
 <style lang="scss" scoped>
 .movie_preview_wrapper {
     padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+
+
+
 }
 </style>
