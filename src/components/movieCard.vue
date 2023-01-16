@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store';
 
 export default {
     name: 'movieCard',
@@ -13,14 +14,27 @@ export default {
 
     data() {
         return {
-            imageName: 'francia.png',
+            store,
+            imageName: '',
 
 
         }
     },
     methods: {
+        removeLanguage() {
+            const lang = document.getElementsByTagName('h6');
+            lang.classlist.add('unshown');
+
+
+        },
         getImagePath(imgPath) {
+            if (this.store.movieList.original_language === "en") {
+                this.imageName = 'uk.png';
+                this.removeLanguage();
+
+            } else;
             return new URL(imgPath, import.meta.url).href;
+
 
         }
 
@@ -33,14 +47,11 @@ export default {
 </script>
 <template>
     <div class="movie_card">
-        <!-- <ul>
-            <li>{{ movieTitle }} - {{ originalTitle }} - {{ movieLanguage }} - {{ movieMark }}
-            </li>
-        </ul> -->
+
         <h2>{{ movieTitle }}</h2>
         <h4>{{ originalTitle }}</h4>
         <h6>{{ movieLanguage }}</h6>
-        <img :src="getImagePath(`../assets/flags/${imageName}`)" alt="">
+        <img :src="getImagePath(`../assets/flags/${imageName}`)">
         <div class="movie_mark">{{ movieMark }}</div>
 
 

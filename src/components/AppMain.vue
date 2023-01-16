@@ -19,9 +19,7 @@ export default {
     <div class="movie_preview_wrapper">
         <movieCard v-for="movie in store.movieList" :movieTitle="movie.title" :originalTitle="movie.original_title"
             :movieLanguage="movie.original_language" :movieMark="movie.vote_average" />
-        <!-- <ul>
-            <li v-for="movie in store.movieList">{{ movie.title }}</li>
-        </ul> -->
+
 
     </div>
 
