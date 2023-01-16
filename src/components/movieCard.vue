@@ -13,10 +13,18 @@ export default {
 
     data() {
         return {
+            imageName: 'francia.png',
 
 
         }
-    }
+    },
+    methods: {
+        getImagePath(imgPath) {
+            return new URL(imgPath, import.meta.url).href;
+
+        }
+
+    },
 
 
 
@@ -32,9 +40,9 @@ export default {
         <h2>{{ movieTitle }}</h2>
         <h4>{{ originalTitle }}</h4>
         <h6>{{ movieLanguage }}</h6>
+        <img :src="getImagePath(`../assets/flags/${imageName}`)" alt="">
         <div class="movie_mark">{{ movieMark }}</div>
-        <img src="https://flagcdn.com/40x30/za.png" srcset="https://flagcdn.com/80x60/za.png 2x,
-    https://flagcdn.com/120x90/usa.png 3x" width="40" height="30" alt="Usa">
+
 
 
 
