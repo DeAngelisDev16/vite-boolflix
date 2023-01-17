@@ -22,18 +22,11 @@ export default {
         }
     },
     methods: {
-
-
-        getImagePath(imgPath) {
-            if (this.languages.includes(this.store.movieList.original_language)) {
-                this.imageName = this.store.movieList.original_language;
-
-
-            } else;
-            return new URL(imgPath, import.meta.url).href;
-
-
+        getImagePath: function (imgPath) {
+            return new URL(`../assets/flags/${imgPath}.png`, import.meta.url).href;
         }
+
+
 
     },
 
@@ -47,8 +40,8 @@ export default {
 
         <h2>{{ movieTitle }}</h2>
         <h4>{{ originalTitle }}</h4>
-        <h6>{{ movieLanguage }}</h6>
-        <img :src="getImagePath(`../public/flags/${imageName}.png`)">
+        <!-- <h6>{{ movieLanguage }}</h6> -->
+        <img :src="getImagePath(movieLanguage)">
         <div class="movie_mark">{{ movieMark }}</div>
 
 

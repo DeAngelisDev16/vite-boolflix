@@ -31,6 +31,7 @@ export default {
                 .then(function (response) {
                     console.log(response.data.results);
                     self.store.movieList = response.data.results;
+
                     //console.log(store.movieList)
                 })
                 .catch(function (error) {
